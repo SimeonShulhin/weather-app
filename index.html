@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="app-container">
+        <nav id="tabs">
+          <button class="btn" id="weather-tab" data-local="home">Home</button>
+          <button class="btn" id="favorites-tab" data-local="favorites">Favorites</button>
+          <select id="language-select">
+            <option value="en">🏴󠁧󠁢󠁥󠁮󠁧󠁿</option>
+            <option value="uk">🇺🇦</option>
+          </select>
+        </nav>
+        <div class="content-wrapper">
+          <div id="weather-container" class="content-container">
+            <!-- Home blocks will be appended here -->
+            <div class="weather-card">
+              <div class="weather-card-header">
+                <div class="input-container">
+                  <div class="search-input">
+                    <span class="search-icon">🔍</span>
+                    <input type="search" class="city-input" oninput="onInput(event)" />
+                  </div>
+                  <div class="autocomplete-list"></div>
+                </div>
+                <div>
+                  <button class="remove-block icon">🗑️</button>
+                  <button class="favorite-block icon">⭐</button>
+                </div>
+              </div>
+              <div class="weather-info"></div>
+              <div class="loader hidden"></div>
+              <fieldset>
+                <legend data-local="selectPeriod">Select a period:</legend>
+                <div>
+                  <input type="radio" id="day" name="period" value="day" checked />
+                  <label for="day" data-local="day">Day</label>
+                </div>
+                <div>
+                  <input type="radio" id="week" name="period" value="week" />
+                  <label for="week" data-local="week">Week</label>
+                </div>
+              </fieldset>
+              <canvas class="weather-chart"></canvas>
+            </div>
+            <div class="add-block-container">
+              <button id="add-block" class="btn">+</button>
+            </div>
+          </div>
+          <div id="favorites-container" class="hidden content-container">
+            <!-- Favorite blocks will be appended here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for confirmation -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p id="modal-message" data-local="removeText">
+          Are you sure you want to remove this block?
+        </p>
+        <button id="confirm-remove" class="btn" data-local="confirmRemove">Confirm</button>
+        <button id="cancel-remove" class="btn" data-local="cancelRemove">Cancel</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="components/modal.js"></script>
+  </body>
+</html>
