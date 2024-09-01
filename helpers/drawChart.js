@@ -4,8 +4,6 @@ const chartInstances = new Map();
 
 export function drawWeatherForecast(city, block, view) {
   const cardId = block.dataset.id;
-  console.log(cardId, block);
-  
 
   if (chartInstances.has(cardId)) {
     chartInstances.get(cardId).destroy();

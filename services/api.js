@@ -1,6 +1,4 @@
 import { currentLanguage } from '../localization/index.js';
-
-// api.js
 const apiKey = '5796abbde9106b7da4febfae8c44c232';
 
 export async function fetchCitySuggestions(query) {

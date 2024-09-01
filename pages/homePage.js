@@ -1,4 +1,3 @@
-// weatherPage.js
 import { fetchWeather } from '../services/api.js';
 import { drawWeatherForecast } from '../helpers/drawChart.js';
 import { showLoader } from '../components/loader.js';
